@@ -60,7 +60,9 @@ CsvpArgs parseArgs(int argc, char **argv)
             outfile = optarg;
             break;
         default:
-            exit(EXIT_FAILURE);
+            // This is intentional fallthrough for the switch statement.
+            // If all required args are present, why stop execution, BUT
+            // `getopt` will report an illegal option with untracked usage of options.
         }
     }
 
